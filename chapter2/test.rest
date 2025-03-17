@@ -1,0 +1,15 @@
+### test get / website
+
+GET http://localhost:3000/
+
+###Get User Data
+GET http://localhost:3000/api/user
+
+###Adding User
+POST http://localhost:3000/api/user
+Content-Type: application/json
+
+{
+    "name": "Caleb",
+    "age": 26
+}
