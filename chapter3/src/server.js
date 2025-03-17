@@ -11,6 +11,9 @@ const __filename = fileURLToPath(import.meta.url)
 // Get the directory name from the file path
 const __dirname = dirname(__filename)
 
+//Middleware
+app.use(express.json())
+
 //Serves html file from Public directory
 // Tell express to serveall filles ffrom public folder as static assets
 app.use(express.static(path.join(__dirname, '../public')))
