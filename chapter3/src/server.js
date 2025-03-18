@@ -6,7 +6,7 @@ import authRoutes from './routes/authRoutes.js'
 import todoRoutes from './routes/todoRoutes.js'
 
 const app = express()
-const PORT = 5000
+const PORT = process.env.PORT || 5003
 
 // Get the file path from the url of the current module
 const __filename = fileURLToPath(import.meta.url)
