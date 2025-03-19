@@ -39,14 +39,16 @@ router.post('/login', async (req, res) => {
 
     try {
         //If we can not find user associated with that username
-        const user = db.prepare('SELECT * FROM users WHERE username = ?').get(username)
+        const getUser = db.prepare('SELECT * FROM users WHERE username = ?')
+        const user = getUser.get(username)
+
         if (!user) {
             return res.sendStatus(404).send({message : "User not found"})
         }
 
         //If password does not match
-        const isValid = bcrypt.compareSync(password, user.password)
-        if (!isValid) {
+        const passwordIsValid = bcrypt.compareSync(password, user.password)
+        if (!passwordIsValid) {
             return res.sendStatus(401).send({message : "Invalid password"})
         }
 
